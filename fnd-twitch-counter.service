@@ -1,0 +1,11 @@
+[Unit]
+Description=fnt twitch follower conter
+[Service]
+Environment="TWITCH_CLIENT_ID=your_client_id"
+Environment="TWITCH_CLIENT_SECRET=your_client_secret"
+Type=simple
+Restart=always
+RestartSec=5s
+ExecStart=/home/pi/fnd-twitch-counter -l 30 -t 50
+[Install]
+WantedBy=multi-user.target
