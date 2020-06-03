@@ -41,7 +41,7 @@ func main() {
 
 	updateFND := func() int {
 		cnt := getFollowerCnt()
-		dev.SetString(fmt.Sprintf("%04d%04d", cnt, targetCnt))
+		dev.SetString(fmt.Sprintf("%4d%4d", cnt, targetCnt))
 
 		// fill bar graph leds
 		currLedCnt := cnt * 8 / targetCnt
