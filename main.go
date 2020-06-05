@@ -52,7 +52,7 @@ func main() {
 
 		// fill bar graph leds
 		currLedCnt := cnt * 8 / targetCnt
-		if cnt == targetCnt {
+		if cnt >= targetCnt {
 			for i := 0; i < 8; i++ {
 				dev.SetLed(i, tm1638.Red)
 			}
