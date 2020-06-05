@@ -38,8 +38,9 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	displayWelcome(dev)
 
-	updateFND := func() int {
+	updateFND := func(dev *tm1638.Module) int {
 		cnt := getFollowerCnt()
 		cntStr := []rune(fmt.Sprintf("%4d%4d", cnt, targetCnt))
 		for i := 0; i < 8; i++ {
@@ -75,7 +76,7 @@ loop:
 	for {
 		select {
 		case t := <-ticker.C:
-			cnt := updateFND()
+			cnt := updateFND(dev)
 			log.Printf("%v: %d", t, cnt)
 		case <-quit:
 			break loop
