@@ -15,13 +15,14 @@ func init() {
 }
 
 func displayWelcome(dev *tm1638.Module) error {
+loop:
 	for i := 0; i < 100; i++ {
 		dev.SetString(randString())
 		time.Sleep(30 * time.Millisecond)
 	}
 	_, ip, _, err := resolveNet()
-	if err != nil {
-		return err
+	if err != nil || ip == "" {
+		goto loop
 	}
 	dev.SetString("twch-" + ip[len(ip)-3:])
 	return nil
