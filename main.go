@@ -9,8 +9,8 @@ import (
 	"time"
 
 	"github.com/suapapa/go_devices/tm1638"
-	"periph.io/x/periph/conn/gpio/gpioreg"
-	"periph.io/x/periph/host"
+	"periph.io/x/conn/v3/gpio/gpioreg"
+	"periph.io/x/host/v3"
 )
 
 var (
